@@ -22,8 +22,8 @@
   <body>
     
   <!-- Start your project here-->  
-
-  <div class="container stylish-color-dark">
+  <!-- liston superior -->
+  <div class="container stylish-color-dark p-2">
 
     <span class="text-white texto-apsico">APSICO</span>
     
@@ -41,13 +41,18 @@
     </div>
   </div>
 
-  <form class="p-2 m-1" id="formLogin" action="agenda/">
+  <form class="p-2 m-1" id="formLogin" action="agenda/" method="POST">
 
     <p class="h4 mb-4 text-center">Ingresar</p>
 
-    <input type="text" id="loginFormUsuario" class="form-control mb-4" placeholder="Email">
+    <input type="text" id="loginFormUsuario" name="loginFormUsuario" class="form-control mb-4" placeholder="Email">
 
-    <input type="password" id="loginFormPassword" class="form-control mb-4" placeholder="Contraseña">
+    <input type="password" id="loginFormPassword" name="loginFormPassword" class="form-control mb-4" placeholder="Contraseña">
+
+    <input type="hidden" id="loginFormNombre" name="loginFormNombre" value="">
+    <input type="hidden" id="loginFormApellido" name="loginFormApellido" value="">
+    <input type="hidden" id="loginFormEmail" name="loginFormEmail" value="">
+    <input type="hidden" id="loginFormLogin" name="loginFormLogin" value="">
 
     <div class="d-flex justify-content-between">
         <div>

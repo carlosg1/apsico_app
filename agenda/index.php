@@ -1,5 +1,12 @@
 <?php 
-    
+
+    $usuario = htmlentities($_POST['loginFormUsuario']);
+    $clave   = htmlentities($_POST['loginFormPassword']);
+    $nombre   = htmlentities($_POST['loginFormNombre']);
+    $apellido   = htmlentities($_POST['loginFormApellido']);
+    $email   = htmlentities($_POST['loginFormEmail']);
+    $login   = htmlentities($_POST['loginFormLogin']);
+
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,9 +26,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
     <!-- Your custom styles (optional) -->
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/agenda.css">
     <title>Agenda</title>
 </head>
 <body>
+
+    <!-- liston superior -->
+    <div class="container stylish-color-dark p-2">
+
+        <span class="text-white texto-apsico">APSICO</span>
+
+        <span class="text-white texto-login"> - Agenda</span>
+
+    </div>
+
+    <div class="container">
+        <span class="agenda-titulo-usuario">Prof: </span>
+        <span class="agenda-texto-usuario"><?php echo $nombre . ' ' . $apellido; ?></span>
+    </div>
     
 
     <!-- jQuery -->

@@ -35,16 +35,34 @@ $(document).ready(function(){
         $.ajax({
             async: false,
             cache: false,
-            dataType: 'html',
+            data: {usuario: $('#loginFormUsuario').val(), clave: $('#loginFormPassword').val()},
+            dataType: 'json',
+            type: 'POST',
             url: 'proxy/login/login.php',
-            error: function(r) {
-                console.log('Error : ', r);
+            error: function(data) {
+                console.log('Error : ', data);
+                toastr.error("Se produjo un error al ingresar", "Advertencia!!");
                 return false;
             },
             success: function(data, textStatus, jqXHR){
                 console.log('data : ', data);
                 console.log('textStatus : ', textStatus);
                 console.log('jqXHR : ', jqXHR);
+
+                if(data.success == "true") {
+
+                    $('#loginFormNombre').val(data.nombre);
+                    $('#loginFormApellido').val(data.apellido);
+                    $('#loginFormEmail').val(data.email);
+                    $('#loginFormLogin').val(data.login);
+
+                    $('#formLogin').submit();
+
+                } else {
+
+                    return false;
+
+                }
 
             }
         })

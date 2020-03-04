@@ -25,10 +25,8 @@
   <!-- liston superior -->
   <div class="container stylish-color-dark p-2">
 
-    <span class="text-white texto-apsico">APSICO</span>
+    <span class="text-white texto-apsico">Historia Cl&iacute;nica</span>
     
-    <span class="text-white texto-login"> - Acceso al sistema</span>
-
   </div>
 
   <div class="container">

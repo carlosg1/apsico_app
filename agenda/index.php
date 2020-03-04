@@ -1,11 +1,11 @@
 <?php 
 
-    $usuario = htmlentities($_POST['loginFormUsuario']);
-    $clave   = htmlentities($_POST['loginFormPassword']);
-    $nombre   = htmlentities($_POST['loginFormNombre']);
+    $usuario    = htmlentities($_POST['loginFormUsuario']);
+    $clave      = htmlentities($_POST['loginFormPassword']);
+    $nombre     = htmlentities($_POST['loginFormNombre']);
     $apellido   = htmlentities($_POST['loginFormApellido']);
-    $email   = htmlentities($_POST['loginFormEmail']);
-    $login   = htmlentities($_POST['loginFormLogin']);
+    $email      = htmlentities($_POST['loginFormEmail']);
+    $login      = htmlentities($_POST['loginFormLogin']);
 
 ?><!DOCTYPE html>
 <html lang="en">

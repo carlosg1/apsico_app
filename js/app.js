@@ -18,6 +18,8 @@ $(document).ready(function(){
         "hideMethod": "fadeOut"
     };
 
+
+
     // controlo los campos login
 
     $('#loginBotonIngresar').click(function(){

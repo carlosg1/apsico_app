@@ -7,6 +7,8 @@
     $email      = htmlentities($_POST['loginFormEmail']);
     $login      = htmlentities($_POST['loginFormLogin']);
 
+   
+
 ?><!DOCTYPE html>
 <html lang="en">
 <head>

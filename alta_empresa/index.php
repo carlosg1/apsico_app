@@ -1,14 +1,5 @@
 <?php 
-
-    $usuario    = htmlentities($_POST['loginFormUsuario']);
-    $clave      = htmlentities($_POST['loginFormPassword']);
-    $nombre     = htmlentities($_POST['loginFormNombre']);
-    $apellido   = htmlentities($_POST['loginFormApellido']);
-    $email      = htmlentities($_POST['loginFormEmail']);
-    $login      = htmlentities($_POST['loginFormLogin']);
-
-   
-
+    require_once('../proxy/conexion.php');
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,33 +21,83 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
     <!-- Your custom styles (optional) -->
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/agenda.css">
-    <title>Agenda</title>
+    
+    <title>Historia Clínica</title>
 </head>
 <body>
 
+
+
     <!-- liston superior -->
-    <div class="container stylish-color-dark p-2">
+    <div class="container stylish-color-dark fixed-top p-2">
 
-        <span class="text-white texto-apsico">APSICO</span>
-
-        <span class="text-white texto-login"> - Agenda</span>
+        <span class="text-white texto-apsico">Historia Clinica</span>
 
     </div>
 
-    <div class="container">
-        <span class="agenda-titulo-usuario">Profesional: </span>
-        <span class="agenda-texto-usuario p-2"><?php echo $nombre . ' ' . $apellido; ?></span>
+    <div class="container pt-5">
+        <p class="h3 mb-4 mt-4">Alta Instituci&oacute;n</p>
     </div>
 
-    <div class="container">
-        <span class="h2-responsive">Agenda</span>
-    </div>
+    
+    <form action="#!" class="text-center p-4">
 
-    <div class="md-form pl-2 pr-2">
-        <input placeholder="Seleccione una fecha" type="button" role="button" id="date-picker-1" class="form-control datepicker-1">
-        <label for="date-picker-1" class="pl-4">Fecha</label>
-    </div>
+        <p class="h4">Datos del usuario</p>
+
+        <p>El usuario que esta creando, ademas de un profesional, será el usuario administrador del centro de salud, mas adelante puede cambiar el administrador en el momento que desee.</p>
+
+        <input type="email" name="altaEmpresaEmail" id="altaEmpresaEmail" class="form-control mb-3" placeholder="E-mail">
+
+        <input type="password" name="altaEmpresaPassword" id="altaEmpresaPassword" class="form-control mb-3" placeholder="Clave">
+
+        <input type="text" name="altaEmpresaApellidoUsuario" id="altaEmpresaApellidoUsuario" class="form-control mb-3" placeholder="Apellido Profesional">
+
+        <input type="text" name="altaEmpresaNombreUsuario" id="altaEmpresaNombreUsuario" class="form-control mb-3" placeholder="Nombre profesional">
+
+        <select class="browser-default custom-select" name="altaEmpresaEspecialidad" id="altaEmpresaEspecialidad">
+            <option value="" selected disabled>Especialidad</option>
+            <option value="1">Psiquiatria</option>
+            <option value="2">Kinesiologia</option>
+            <option value="3">Clinica</option>
+        </select>
+
+        <hr class="bg-primary">
+    
+        <p class="h4">Datos de la institución</p>
+
+        <select class="browser-default custom-select mb-3" name="altaEmpresaEmpresaTipo" id="altaEmpresaEmpresaTipo">
+            <option value="" selected disabled>Tipo institución</option>
+            <?php
+            $rst_tipo_institucion = "SELECT * FROM empresa_tipo order by empresa_tipo";
+
+            foreach($mbd->query($rst_tipo_institucion) as $fila) {
+                echo '<option value="' . $fila[0] . '">' . $fila[1] . '</option>';
+            }
+            ?>
+        </select>
+
+        <input type="text" name="altaEmpresaNombreEmpresa" id="altaEmpresaNombreEmpresa" class="form-control mb-3" placeholder="Nombre Institución">
+
+        <input type="text" name="altaEmpresaTelefono" id="altaEmpresaTelefono" class="form-control mb-3" placeholder="Telefono">
+
+        <input type="text" name="altaEmpresaCalle" id="altaEmpresaCalle" class="form-control mb-3" placeholder="Calle">
+
+        <input type="text" name="altaEmpresaNroPuerta" id="altaEmpresaNroPuerta" class="form-control mb-3" placeholder="Numero puerta">
+
+        <input type="text" name="altaEmpresaPais" id="altaEmpresaPais" class="form-control mb-3" placeholder="Pais">
+
+        <input type="text" name="altaEmpresaProvincia" id="altaEmpresaProvincia" class="form-control mb-3" placeholder="Provincia">
+
+        <input type="text" name="altaEmpresaCiudad" id="altaEmpresaCiudad" class="form-control mb-3" placeholder="Ciudad">
+
+        <div class="col mb-4">
+            <button class="btn btn-secondary" type="button" id="btnAltaEmpresaCancelar">Cancelar</button>
+            <button class="btn btn-success" type="button" id="btnAltaEmpresaSiguiente">Siguiente</button>
+        </div>
+    
+    </form>
+
+
     
 
     <!-- jQuery -->
@@ -72,7 +113,9 @@
     <!-- toast.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <!-- mi propio script -->
-    <script src="../js/agenda.js"></script>
-    
+    <script src="../js/alta_empresa.js"></script>
+    <?php 
+        $mdb = null;
+    ?>
 </body>
 </html>

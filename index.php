@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
     <!-- Your custom styles (optional) -->
     <link rel="stylesheet" href="css/style.css">
-    <title>Login - APSICO</title>
+    <title>Historia Cl&iacute;nica</title>
   </head>
   <body>
 
@@ -62,7 +62,7 @@
 
     <div class="text-center">
         <p>No es miembro??
-            <a href="">Registrese</a>
+            <a href="alta_empresa/">Registrese</a>
         </p>
     </div>
 </form>

@@ -3,6 +3,11 @@
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Last-Modified" content="0">
+    <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -40,7 +45,7 @@
     </div>
 
     
-    <form action="#!" class="text-center p-4">
+    <form action="#!" class="text-center p-4" id="frmAltaEmpresa" method="POST">
 
         <p class="h4">Datos del usuario</p>
 
@@ -94,6 +99,9 @@
             <button class="btn btn-secondary" type="button" id="btnAltaEmpresaCancelar">Cancelar</button>
             <button class="btn btn-success" type="button" id="btnAltaEmpresaSiguiente">Siguiente</button>
         </div>
+
+        <input type="hidden" name="id_empresa" id="id_empresa" value="">
+        <input type="hidden" name="id_usuario" id="id_usuario" value="">
     
     </form>
 

@@ -2,9 +2,7 @@ $(document).ready(function() {
 
     $('#btnAltaEmpresaSiguiente').click(function() {
 
-        alert('Click en siguiente');
-
-        $.ajax({
+       $.ajax({
             async: false,
             cache: false,
             data: {
@@ -26,10 +24,19 @@ $(document).ready(function() {
             type: 'POST',
             url: 'alta_empresa.php',
             error: function(data) {
-                alert('salio por error');
+                alert('Se produjo un error al dar de alta la institucion. intente mas tarde.');
+                return false;
             },
             success: function(data, textStatus, jqXHR) {
-                alert('salio por success');
+                if(data[0].success === 'true') {
+                    document.getElementById('id_usuario').value = data[0].id_usuario;
+                    document.getElementById('id_empresa').value = data[0].id_empresa;
+                    document.getElementById('frmAltaEmpresa').action ='pa/';
+                    document.getElementById('frmAltaEmpresa').submit();
+                    return true;
+                } else {
+                    alert('Error de alta. intente mas tarde');
+                }
             }
         });
 

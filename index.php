@@ -39,7 +39,7 @@
     </div>
   </div>
 
-  <form class="p-2 m-1" id="formLogin" action="agenda/" method="POST">
+  <form class="p-2 m-1" id="formLogin" action="#!" method="POST">
 
     <p class="h4 mb-4 text-center">Ingresar</p>
 

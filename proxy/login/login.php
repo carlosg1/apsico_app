@@ -3,18 +3,25 @@
     $usuario = htmlentities($_POST['usuario']);
     $clave   = htmlentities($_POST['clave']);
 
-    // carlosg
-    if($usuario == 'carlosgctes@gmail.com' && $clave == '123'){
+    require_once('../conexion.php');
 
-        echo '{"success":"true","nombre":"Carlos","apellido":"Garcia","email":"carlosgctes@gmail.com","login":"carlosg"}';
+    $qry_usuario = "select * from vw_usuario where correo = '$usuario'";
 
+    $rst_usuario = $mbd->query($qry_usuario);
+
+    if($rst_usuario->rowCount() == 0){
+        echo '{"success":"false","errorMsg":"El usuario no existe"}';
         exit;
-
     }
 
-    $resp = '{"success":"false","errorMsg":"Usuario o contraseña incorrecto. Intente nuevamente con otras credenciales."}';
+    $reg_usuario = $rst_usuario->fetch(PDO::FETCH_OBJ);
 
-    echo $resp;
+    if($reg_usuario->clave != $clave){
+        echo '{"success":"false","errorMsg":"clave incorrecta"}';
+        exit;
+    }
+
+    echo '{"success":"true","email":"' . $usuario . '"}';
 
     exit;
 

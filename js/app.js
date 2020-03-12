@@ -41,26 +41,27 @@ $(document).ready(function(){
             dataType: 'json',
             type: 'POST',
             url: 'proxy/login/login.php',
+
             error: function(data) {
                 console.log('Error : ', data);
                 toastr.error("Se produjo un error al ingresar", "Advertencia!!");
                 return false;
             },
-            success: function(data, textStatus, jqXHR){
-                console.log('data : ', data);
-                console.log('textStatus : ', textStatus);
-                console.log('jqXHR : ', jqXHR);
 
+            success: function(data, textStatus, jqXHR){
+                
                 if(data.success == "true") {
 
-                    $('#loginFormNombre').val(data.nombre);
-                    $('#loginFormApellido').val(data.apellido);
-                    $('#loginFormEmail').val(data.email);
-                    $('#loginFormLogin').val(data.login);
+                    document.getElementById('loginFormEmail').value = data.email;
 
-                    $('#formLogin').submit();
+                    document.getElementById('formLogin').action = 'agenda/';
+                    document.getElementById('formLogin').submit();
+
+                    return true;
 
                 } else {
+
+                    toastr.error("Error de acceso", data.errorMsg);
 
                     return false;
 
